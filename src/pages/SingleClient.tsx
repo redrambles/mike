@@ -1,5 +1,4 @@
 import {Link, useParams} from 'react-router-dom';
-// @ts-ignore 
 import { clients } from '../data';
 
 const SingleClient = () => {

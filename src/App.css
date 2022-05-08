@@ -134,9 +134,11 @@ ul {
   object-fit: cover;
 }
 
-.link {
+.nav-link {
   color: var(--grey-500);
+  transition: border 0.1s ease-in-out;
 }
+
 
 .active {
   color: var(--primary-500);
@@ -188,7 +190,7 @@ ul {
 }
 
 .navbar {
-  margin: 0 auto;
+  margin: 1rem auto;
   display: flex;
   gap: 1rem;
 }
@@ -212,6 +214,3 @@ ul {
   align-self: center;
 }
 
-/* .client-summary .client-description {
-  width: 100%;
-} */
