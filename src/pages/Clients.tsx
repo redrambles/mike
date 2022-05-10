@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { clients } from '../data';
+import { useAppContext } from '../context'
 
 function Clients() {
+  const { clients } = useAppContext()
+
   return (
     <section>
       {clients.map(client => (

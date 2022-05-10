@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { projects } from '../data';
+import { useAppContext } from '../context';
 
 function Projects() {
+  const { projects } = useAppContext();
+
   return (
     <section>
       {projects.map(project => (
