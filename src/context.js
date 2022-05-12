@@ -6,9 +6,18 @@ const AppProvider = ({ children }) => {
   const [clients, setClients] = useState(clientData);
   const [projects, setProjects] = useState(projectData);
 
+  const addClient = ({name, type, description }) => {
+    const newClient = {
+      id: Date.now(),
+      name: name,
+      type: type,
+      description: description,
+    }
+    setClients([newClient, ...clients])
+  }
 
   return (
-    <AppContext.Provider value={{clients, setClients, projects, setProjects}}>
+    <AppContext.Provider value={{clients, setClients, projects, setProjects, addClient}}>
       {children}
     </AppContext.Provider>
   )

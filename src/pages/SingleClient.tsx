@@ -1,8 +1,9 @@
 import {Link, useParams} from 'react-router-dom';
-import { clients } from '../data';
+import { useAppContext } from '../context'
 
 const SingleClient = () => {
   const { id } = useParams()
+  const { clients } = useAppContext();
   const client = clients.find(client => client.id === Number(id))
 
   return (
