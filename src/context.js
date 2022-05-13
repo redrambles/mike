@@ -16,8 +16,19 @@ const AppProvider = ({ children }) => {
     setClients([newClient, ...clients])
   }
 
+  const updateClient = (clientId, updatedName, updatedType, updatedDescription) => {
+    const updatedClients = clients.map(client => {
+      if (client.id !== clientId){
+        return client
+      } else {
+        return {...client, name: updatedName, type: updatedType, description: updatedDescription}
+      }
+    })
+    setClients(updatedClients)
+  }
+
   return (
-    <AppContext.Provider value={{clients, setClients, projects, setProjects, addClient}}>
+    <AppContext.Provider value={{clients, setClients, projects, setProjects, addClient, updateClient}}>
       {children}
     </AppContext.Provider>
   )

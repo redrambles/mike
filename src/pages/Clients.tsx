@@ -20,6 +20,13 @@ function Clients() {
 		});
 	};
 
+  const resetForm = () => {
+    setFormElements({
+      name: "",
+      type: "",
+      description: "",
+    });
+  }
 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
@@ -27,11 +34,7 @@ function Clients() {
 		if (name && type && description) {
 			addClient(formElements);
 			setShowForm(false);
-			setFormElements({
-				name: "",
-				type: "",
-				description: "",
-			});
+      resetForm();
 		} else {
 			showMessage("Please fill in all fields");
 		}
