@@ -1,6 +1,5 @@
 import { NavLink } from "react-router-dom";
-// using NavLink instead of Link gives us perks like an 'active' class added to the current page link
-// We also have access to an 'isActive' property
+// using NavLink instead of Link gives us perks like  access to an 'isActive' property
 
 function Navbar() {
 	return (

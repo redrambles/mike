@@ -6,7 +6,7 @@ import { useAppContext } from "../context";
 function Clients() {
 	const { clients, addClient } = useAppContext();
 	const [showForm, setShowForm] = useState(false);
-	const [message, showMessage] = useState("");
+	const [showMessage, setShowMessage] = useState(false);
 	const [formElements, setFormElements] = useState({
 		name: "",
 		type: "",
@@ -20,13 +20,13 @@ function Clients() {
 		});
 	};
 
-  const resetForm = () => {
-    setFormElements({
-      name: "",
-      type: "",
-      description: "",
-    });
-  }
+	const resetForm = () => {
+		setFormElements({
+			name: "",
+			type: "",
+			description: "",
+		});
+	};
 
 	const handleFormSubmit = (e) => {
 		e.preventDefault();
