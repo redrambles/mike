@@ -7,8 +7,8 @@ import About from "./pages/About";
 import Error from "./pages/Error";
 import { Clients } from "./pages/Clients/";
 import { SingleClient } from "./pages/Clients";
-import Projects from "./pages/Projects";
-import SingleProject from "./pages/SingleProject";
+import { Projects } from "./pages/Projects";
+import { SingleProject } from "./pages/Projects";
 import "./App.css";
 import SharedClientLayout from "./layouts/SharedClientLayout";
 

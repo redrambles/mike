@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import Alert from "../components/Alert";
-import { useAppContext } from "../context";
+import Alert from "../../components/Alert";
+import { useAppContext } from "../../context";
 
 function Projects() {
 	const { projects, addProject, clients } = useAppContext();

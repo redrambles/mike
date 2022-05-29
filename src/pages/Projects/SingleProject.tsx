@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useAppContext } from "../context";
+import { useAppContext } from "../../context";
 import { useNavigate } from "react-router";
 
 // Work on updateProject functionality - and wire up Edit button
