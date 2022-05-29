@@ -49,7 +49,6 @@ const AppProvider = ({ children }) => {
 	};
 
   const deleteResource = (resource, resourceId) => {
-    console.log('yo')
     if (resource === "client"){
         const newClients = clients.filter((client) => {
           return client.id !== resourceId
