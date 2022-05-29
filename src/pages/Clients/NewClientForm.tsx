@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import Alert from "../components/Alert";
-import { useAppContext } from "../context";
+import Alert from "../../components/Alert";
+import { useAppContext } from "../../context";
 
 const NewClientForm = ({ setShowForm }) => {
 	const { addClient } = useAppContext();
 	const [showMessage, setShowMessage] = useState(false);
+	const [message, setMessage] = useState("")
 	const [formElements, setFormElements] = useState({
 		name: "",
 		type: "",
@@ -34,13 +35,14 @@ const NewClientForm = ({ setShowForm }) => {
 			setShowForm(false);
 			resetForm();
 		} else {
+			setMessage("Please fill out all the forms")
 			setShowMessage(true);
 		}
 	};
 
 	return (
 		<form className='client-form' onSubmit={handleFormSubmit}>
-			{showMessage && <Alert duration={2000} message='Please fill out all the fields' setShowMessage={setShowMessage} />}
+			{showMessage && <Alert duration={2000} message={message} setShowMessage={setShowMessage} />}
 			<button className='btn close-btn' onClick={() => setShowForm(false)}>
 				X
 			</button>

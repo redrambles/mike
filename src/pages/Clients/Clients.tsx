@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import NewClientForm from "./NewClientForm";
-import { useAppContext } from "../context";
+import { useAppContext } from "../../context";
 
 function Clients() {
 	const { clients } = useAppContext();

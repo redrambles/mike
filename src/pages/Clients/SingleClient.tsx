@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from 'react-router';
-import { useAppContext } from "../context";
+import { useAppContext } from "../../context";
 import EditClientForm from "./EditClientForm";
 
 const SingleClient = () => {

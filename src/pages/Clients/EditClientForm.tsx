@@ -1,11 +1,9 @@
 import { useState } from "react";
 
-import { useAppContext } from "../context";
+import { useAppContext } from "../../context";
 
 const EditClientForm = ({ client, setEditing }) => {
   const { updateClient } = useAppContext();
-
-
 
 	const [formElements, setFormElements] = useState({
 		name: client.name,
