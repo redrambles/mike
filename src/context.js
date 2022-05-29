@@ -16,15 +16,6 @@ const AppProvider = ({ children }) => {
 		setClients([newClient, ...clients]);
 	};
 
-	const addProject = ({ name, client }) => {
-		const newProject = {
-			id: Date.now(),
-			name: name,
-			client: client,
-		};
-		setProjects([...projects, newProject]);
-	};
-
 	const updateClient = (clientId, updatedName, updatedType, updatedDescription) => {
 		const updatedClients = clients.map((client) => {
 			if (client.id !== clientId) {
@@ -36,7 +27,17 @@ const AppProvider = ({ children }) => {
 		setClients(updatedClients);
 	};
 
-  const updateProject = (projectId, updatedName, updatedClient) => {
+
+	const addProject = ({ name, client }) => {
+		const newProject = {
+			id: Date.now(),
+			name: name,
+			client: client,
+		};
+		setProjects([...projects, newProject]);
+	};
+
+	const updateProject = (projectId, updatedName, updatedClient) => {
 		const updatedProjects = projects.map((project) => {
 			if (project.id !== projectId) {
 				return project;
@@ -47,6 +48,9 @@ const AppProvider = ({ children }) => {
 		});
 		setProjects(updatedProjects);
 	};
+
+
+
 
   const deleteResource = (resource, resourceId) => {
     if (resource === "client"){

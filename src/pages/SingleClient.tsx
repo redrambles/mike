@@ -2,71 +2,27 @@ import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useNavigate } from 'react-router';
 import { useAppContext } from "../context";
+import EditClientForm from "./EditClientForm";
 
 const SingleClient = () => {
 	const { id } = useParams();
-	const { clients, updateClient, deleteResource } = useAppContext();
+	const { clients, deleteResource } = useAppContext();
 	const [editing, setEditing] = useState(false);
 	let navigate = useNavigate();
-	// Get this client accoriding to the url parameter (id)
-	const client = clients.find((client) => client.id === Number(id));
-	// When editing, populate the fields with the current values
-	const [formElements, setFormElements] = useState({
-		name: client.name,
-		type: client.type,
-		description: client.description,
-	});
 
-	const handleFormChange = (e) => {
-		const { name, value } = e.target;
-		return setFormElements((prevElements) => {
-			return { ...prevElements, [name]: value };
-		});
-	};
+	// Get this client according to the url parameter (id)
+	const client = clients.find((client) => client.id === Number(id));
 
 	const handleDelete = () => {
 		deleteResource("client", client.id);
 		navigate("/clients");
-	}
-
-	const handleFormSubmit = (e) => {
-		e.preventDefault();
-		const { name, type, description } = formElements;
-		const numId = Number(id);
-		updateClient(numId, name, type, description);
-		setEditing(false);
 	};
 
 	return (
 		<section className='section client-details'>
-			{editing ? (
-				<form className='client-form' onSubmit={handleFormSubmit}>
-					<button className='btn close-btn' onClick={() => setEditing(false)}>
-						X
-					</button>
-					<div className='form-group'>
-						<label className='form-label' htmlFor='name'>
-							Name
-						</label>
-						<input type='text' name='name' value={formElements.name} onChange={handleFormChange} />
-					</div>
-					<div className='form-group'>
-						<label className='form-label' htmlFor='type'>
-							Type
-						</label>
-						<input type='text' name='type' value={formElements.type} onChange={handleFormChange} />
-					</div>
-					<div className='form-group'>
-						<label className='form-label' htmlFor='description'>
-							Description
-						</label>
-						<textarea name='description' value={formElements.description} onChange={handleFormChange} />
-					</div>
-					<button className='btn btn-primary' type='submit'>
-						Save Changes
-					</button>
-				</form>
-			) : (
+			{editing ?
+			  <EditClientForm client={client} setEditing={setEditing}/>
+				:
 				<article className="view-client">
 					<div className="buttons">
 					<button className='btn edit-btn' onClick={() => setEditing(true)}>
@@ -83,7 +39,7 @@ const SingleClient = () => {
 						All Clients
 					</Link>
 				</article>
-			)}
+			}
 		</section>
 	);
 };
