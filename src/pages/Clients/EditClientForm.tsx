@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 import { useAppContext } from "../../context";
 
 const EditClientForm = ({ client, setEditing }) => {
@@ -22,6 +21,7 @@ const EditClientForm = ({ client, setEditing }) => {
 		e.preventDefault();
 		const { name, type, description } = formElements;
 		const numId = Number(client.id);
+		// TODO - Add validation for form - all inputs must be filled out
 		updateClient(numId, name, type, description);
 		setEditing(false);
 	};

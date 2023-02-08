@@ -35,7 +35,7 @@ const NewClientForm = ({ setShowForm }) => {
 			setShowForm(false);
 			resetForm();
 		} else {
-			setMessage("Please fill out all the forms")
+			setMessage("Please fill out all the inputs")
 			setShowMessage(true);
 		}
 	};

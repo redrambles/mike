@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Alert from "../../components/Alert";
 import { useAppContext } from "../../context";
+import NewProjectForm from "./NewProjectForm";
 
 function Projects() {
 	const { projects, addProject, clients } = useAppContext();
@@ -46,35 +47,8 @@ function Projects() {
 		<section>
 			<h2>Projects</h2>
 			{showMessage && <Alert message='Please fill out all the fields' setShowMessage={setShowMessage} />}
-			{showForm ? (
-				<form className='project-form' onSubmit={handleFormSubmit}>
-					<button className='btn close-btn' onClick={closeForm}>
-						X
-					</button>
-					<div className='form-group'>
-						<label htmlFor='name'>Name</label>
-						<input
-							type='text'
-							name='name'
-							id='name'
-							value={formElements.name}
-							placeholder='Project Name'
-							onChange={handleFormChange}
-						/>
-					</div>
-					<div className='form-group'>
-						<select name='client' value={formElements.client} onChange={handleFormChange}>
-							<option defaultValue='Choose client'>Choose client</option>
-							{clients.map((client) => (
-								<option key={client.name}>{client.name}</option>
-							))}
-						</select>
-					</div>
-					<button className='btn' type='submit'>
-						Create Project
-					</button>
-				</form>
-			) : (
+			{showForm ? <NewProjectForm formElements={formElements} clients={clients} handleFormChange={handleFormChange} handleFormSubmit={handleFormSubmit} closeForm={closeForm}/>
+				: (
 				<button className='btn' onClick={() => setShowForm(true)}>
 					Add Project
 				</button>
