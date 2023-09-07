@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
-function Modal({children}) {
-  return (
-    <div>
-      {children}
-    </div>
-  )
+function Modal({ children }) {
+  return <div>{children}</div>;
 }
 
-export default Modal
+export default Modal;
