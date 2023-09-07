@@ -24,14 +24,14 @@
   border-color: transparent;
   font-size: 1rem;
   width: 100%;
-  color: var(--grey-800);;
+  color: var(--grey-800);
 }
 
 .form-group input,
 .form-group select {
   padding: 0.5rem;
   font-size: 1.2em;
-  font-family: inherit
+  font-family: inherit;
 }
 
 .form-group select {
@@ -39,9 +39,10 @@
 }
 
 .form-group textarea {
-  min-height: 10rem;  
+  min-height: 10rem;
+  font-size: inherit;
+  font-family: inherit;
 }
-
 
 .client-summary,
 .project-summary {
@@ -73,7 +74,8 @@
   padding: 0.75rem 1rem;
 }
 
-.client-form, .project-form {
+.client-form,
+.project-form {
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
