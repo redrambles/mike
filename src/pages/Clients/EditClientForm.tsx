@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAppContext } from "../../context";
 
-const EditClientForm = ({ client, setEditing }) => {
+const EditClientForm = ({ client, setEditing }): JSX.Element => {
   const { updateClient } = useAppContext();
 
   const [formElements, setFormElements] = useState({
@@ -10,14 +10,14 @@ const EditClientForm = ({ client, setEditing }) => {
     description: client.description
   });
 
-  const handleFormChange = (e) => {
+  const handleFormChange = (e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     return setFormElements((prevElements) => {
       return { ...prevElements, [name]: value };
     });
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const { name, type, description } = formElements;
     const numId = Number(client.id);
